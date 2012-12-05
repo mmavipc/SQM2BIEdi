@@ -1,0 +1,27 @@
+#Visual studio bullshit
+*.suo
+*.sdf
+*.opensdf
+ipch/*
+*.vcxproj.user
+
+#build relics
+*.obj
+*.tlog
+*.manifest
+*.manifest.res
+*.ilk
+*.pdb
+*.rc
+*.log
+*.idb
+*.lastbuildstate
+
+#build output
+*.exe
+*.lib
+*.exp
+*.dll
+
+#allow dependencies to be in repo, that only get changed once
+!./Dependencies/*
