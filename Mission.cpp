@@ -14,7 +14,9 @@ void Mission::DeserializeSQM(std::istream &in)
 	{
 		std::string strLine;
 		std::getline(in, strLine);
-		strLine = RemoveWhitespace(strLine);
+		strLine = StringReplace(strLine, "\x09", "");
+		strLine = StringReplace(strLine, "\r", "");
+		strLine = StringReplace(strLine, "\n", "");
 		//prepare for the madness
 		if(strLine == "addOns[]=")
 		{
@@ -47,15 +49,25 @@ void Mission::DeserializeSQM(std::istream &in)
 			//parser-ception
 			std::getline(in, strLine);//{
 			std::getline(in, strLine);
+			strLine = StringReplace(strLine, "\x09", "");
+			strLine = StringReplace(strLine, "items=", "");
+			strLine = StringReplace(strLine, ";", "");
+			m_groups.reserve(atoi(strLine.c_str()));
 			unsigned int scope = 1;
 			while(scope != 0)
 			{
+				std::getline(in, strLine);
 				scope += CharCount(strLine, '{');
 				scope -= CharCount(strLine, '}');
 				strLine = StringReplace(strLine, "\x09", "");
 				if(strLine.find("class Item") != std::string::npos)
 				{
-					//add group
+					m_groups.resize(m_groups.size()+1);
+					static unsigned short id = 0;
+					Group *group = new Group(id);
+					id++;
+					group->DeserializeSQM(in);
+					m_groups[m_groups.size()-1] = group;
 				}
 			}
 		}

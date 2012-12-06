@@ -74,15 +74,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Group.cpp" />
     <ClCompile Include="Intel.cpp" />
     <ClCompile Include="Mission.cpp" />
     <ClCompile Include="SQM2BIEdi.cpp" />
     <ClCompile Include="StringFuncs.cpp" />
+    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Group.h" />
     <ClInclude Include="Intel.h" />
     <ClInclude Include="Mission.h" />
     <ClInclude Include="StringFuncs.h" />
+    <ClInclude Include="Unit.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
