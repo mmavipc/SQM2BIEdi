@@ -5,6 +5,11 @@
 
 #include "StringFuncs.h"
 
+Intel::Intel() : m_dOvercast(0), m_dOvercastWanted(0), m_dFog(0), m_dFogWanted(0),
+	m_hour(0), m_minute(0), m_month(0), m_year(0), m_day(0)
+{
+}
+
 void Intel::DeserializeSQM(std::istream &in)
 {
 	std::string strLine;

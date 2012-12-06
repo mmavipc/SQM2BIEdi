@@ -4,6 +4,7 @@
 class Intel
 {
 	public:
+		Intel();
 		void DeserializeSQM(std::istream &in);
 		void SerializeBiEdi(std::ostream &out);
 	private:
