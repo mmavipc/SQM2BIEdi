@@ -12,7 +12,7 @@ int main(int argc, char* argv[])
 	Mission mis;
 
 	std::fstream inFile;
-	inFile.open("mission.sqm", std::ios_base::in | std::ios_base::binary);
+	inFile.open("mission.sqm", std::ios_base::in);
 
 	mis.DeserializeSQM(inFile);
 	return 0;

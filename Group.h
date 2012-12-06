@@ -2,8 +2,19 @@
 #include <vector>
 #include <istream>
 #include <ostream>
+#include <string>
 
 class Unit;
+
+class Center
+{
+	public:
+		static Center* GetCenter(std::string strSide);
+		std::string GetSide();
+	private:
+		Center(std::string strSide);
+		std::string m_strSide;
+};
 
 class Group
 {
@@ -14,4 +25,5 @@ class Group
 	private:
 		std::vector<Unit*> m_units;
 		unsigned short m_ID;
+		Center* m_center;
 };
