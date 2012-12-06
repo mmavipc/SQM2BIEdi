@@ -42,5 +42,22 @@ void Mission::DeserializeSQM(std::istream &in)
 			}
 			m_intel->DeserializeSQM(in);
 		}
+		else if(strLine == "class Groups")
+		{
+			//parser-ception
+			std::getline(in, strLine);//{
+			std::getline(in, strLine);
+			unsigned int scope = 1;
+			while(scope != 0)
+			{
+				scope += CharCount(strLine, '{');
+				scope -= CharCount(strLine, '}');
+				strLine = StringReplace(strLine, "\x09", "");
+				if(strLine.find("class Item") != std::string::npos)
+				{
+					//add group
+				}
+			}
+		}
 	}
 }
