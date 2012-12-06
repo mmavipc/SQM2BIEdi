@@ -36,3 +36,15 @@ std::string StringReplace(std::string str, const std::string &strReplace, const 
 	}
 	return str;
 }
+unsigned int CharCount(const std::string &str, const char c)
+{
+	unsigned int count = 0;
+	for(size_t i = 0; i < str.size(); i++)
+	{
+		if(str[i] == c)
+		{
+			count++;
+		}
+	}
+	return count;
+}

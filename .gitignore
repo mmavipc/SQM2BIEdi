@@ -25,3 +25,6 @@ ipch/*
 
 #allow dependencies to be in repo, that only get changed once
 !./Dependencies/*
+
+#testing
+mission.sqm
