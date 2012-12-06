@@ -24,12 +24,18 @@
     <ClCompile Include="Intel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="StringFuncs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Mission.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Intel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StringFuncs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
