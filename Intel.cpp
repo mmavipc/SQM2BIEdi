@@ -1,7 +1,7 @@
 #include "Intel.h"
 
 #include <string>
-#include <assert.h>
+#include <cassert>
 
 #include "StringFuncs.h"
 
