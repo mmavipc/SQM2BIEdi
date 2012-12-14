@@ -3,7 +3,7 @@
 #include "StringFuncs.h"
 
 Unit::Unit(Group *grp) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), m_strType(), m_bPlayable(false), m_bLeader(false),
-	m_dSkill(0.5), m_strInit(), m_strDesc()
+	m_dSkill(0.5), m_strInit(), m_strDesc(), m_dHealth(1), m_dAmmo(1)
 {
 }
 
@@ -78,6 +78,14 @@ void Unit::DeserializeSQM(std::istream &in)
 		else if(strCmd == "description")
 		{
 			m_strDesc = strArg.substr(1, strArg.length()-2);
+		}
+		else if(strCmd == "health")
+		{
+			m_dHealth = atof(strArg.substr(0, strArg.length()-1).c_str());
+		}
+		else if(strCmd == "ammo")
+		{
+			m_dAmmo = atof(strArg.substr(0, strArg.length()-1).c_str());
 		}
 	}
 }
