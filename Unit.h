@@ -30,4 +30,6 @@ class Unit
 		double m_dSkill;
 
 		std::string m_strInit;
+		
+		std::string m_strDesc;
 };
