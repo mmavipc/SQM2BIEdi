@@ -41,5 +41,9 @@ void Unit::DeserializeSQM(std::istream &in)
 		{
 			m_dAzimuth = atof(strArg.substr(0, strArg.length()-1).c_str());
 		}
+		else if(strCmd == "special")
+		{
+			//TODO: Fill this in
+		}
 	}
 }
