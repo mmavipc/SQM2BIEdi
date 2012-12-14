@@ -3,6 +3,7 @@
 #include <ostream>
 class Intel
 {
+	friend class Mission;
 	public:
 		Intel();
 		void DeserializeSQM(std::istream &in);
