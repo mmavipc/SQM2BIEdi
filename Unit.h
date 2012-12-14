@@ -32,4 +32,7 @@ class Unit
 		std::string m_strInit;
 		
 		std::string m_strDesc;
+
+		double m_dHealth;
+		double m_dAmmo;
 };
