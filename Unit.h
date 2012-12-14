@@ -26,4 +26,6 @@ class Unit
 		bool m_bLeader;
 
 		std::string m_strRank;
+
+		double m_dSkill;
 };
