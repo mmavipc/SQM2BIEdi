@@ -48,5 +48,12 @@ void Unit::DeserializeSQM(std::istream &in)
 		{
 			strType = strArg.substr(0, strArg.length()-1);
 		}
+		else if(strCmd == "player")
+		{
+			if(strArg == "\"PLAY CDG\";" || strArg == "\"PLAYER COMMANDER\";")
+			{
+				m_bPlayable = true;
+			}
+		}
 	}
 }
