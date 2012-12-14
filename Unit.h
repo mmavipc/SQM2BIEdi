@@ -20,4 +20,6 @@ class Unit
 		double m_dAzimuth;
 
 		std::string strType;
+
+		bool m_bPlayable;
 };

@@ -2,7 +2,7 @@
 
 #include "StringFuncs.h"
 
-Unit::Unit(Group *grp)
+Unit::Unit(Group *grp) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), strType(), m_bPlayable(false)
 {
 }
 
