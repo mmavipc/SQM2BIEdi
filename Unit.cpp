@@ -37,5 +37,9 @@ void Unit::DeserializeSQM(std::istream &in)
 			commaPos = strArg.find("};");
 			m_dY = atof(strArg.substr(0, commaPos).c_str());
 		}
+		else if(strCmd == "azimut")
+		{
+			m_dAzimuth = atof(strArg.substr(0, strArg.length()-1).c_str());
+		}
 	}
 }

@@ -14,4 +14,6 @@ class Unit
 		double m_dX;
 		double m_dY;
 		double m_dZ;
+
+		double m_dAzimuth;
 };
