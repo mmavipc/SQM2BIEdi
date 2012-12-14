@@ -46,7 +46,7 @@ void Unit::DeserializeSQM(std::istream &in)
 		}
 		else if(strCmd == "vehicle")
 		{
-			strType = strArg.substr(1, strArg.length()-2);
+			m_strType = strArg.substr(1, strArg.length()-2);
 		}
 		else if(strCmd == "player")
 		{
