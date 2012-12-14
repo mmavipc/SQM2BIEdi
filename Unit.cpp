@@ -3,7 +3,7 @@
 #include "StringFuncs.h"
 
 Unit::Unit(Group *grp) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), m_strType(), m_bPlayable(false), m_bLeader(false),
-	m_dSkill(0.5)
+	m_dSkill(0.5), m_strInit()
 {
 }
 
@@ -70,6 +70,10 @@ void Unit::DeserializeSQM(std::istream &in)
 		else if(strCmd == "skill")
 		{
 			m_dSkill = atof(strArg.substr(0, strArg.length()-1).c_str());
+		}
+		else if(strCmd == "init")
+		{
+			m_strInit = strArg.substr(1, strArg.length()-2);
 		}
 	}
 }

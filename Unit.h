@@ -28,4 +28,6 @@ class Unit
 		std::string m_strRank;
 
 		double m_dSkill;
+
+		std::string m_strInit;
 };
