@@ -73,3 +73,10 @@ void Mission::DeserializeSQM(std::istream &in)
 		}
 	}
 }
+
+void Mission::SerializeBiEdi(std::ostream &out)
+{
+	out << "class _prefix_0" << std::endl << "{" << std::endl << "	objectType=\"prefix\";"
+		<< std::endl << "	class Arguments" << std::endl << "	{" << std::endl
+		<< "	};" << std::endl << "};" << std::endl;
+}

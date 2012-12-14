@@ -11,6 +11,7 @@ class Mission
 	public:
 		Mission();
 		void DeserializeSQM(std::istream &in);
+		void SerializeBiEdi(std::ostream &out);
 	private:
 		Intel *m_intel;
 		std::vector<Group*> m_groups;

@@ -15,5 +15,6 @@ int main(int argc, char* argv[])
 	inFile.open("mission.sqm", std::ios_base::in);
 
 	mis.DeserializeSQM(inFile);
+	mis.SerializeBiEdi(std::cout);//std::cout for testing purposes
 	return 0;
 }
