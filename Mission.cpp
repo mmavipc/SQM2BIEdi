@@ -79,6 +79,7 @@ void Mission::SerializeBiEdi(std::ostream &out)
 	out << "class _prefix_0" << std::endl << "{" << std::endl << "	objectType=\"prefix\";"
 		<< std::endl << "	class Arguments" << std::endl << "	{" << std::endl
 		<< "	};" << std::endl << "};" << std::endl;
+
 	if(m_intel != NULL)
 	{
 		out << "class _intel_1" << std::endl
@@ -98,4 +99,12 @@ void Mission::SerializeBiEdi(std::ostream &out)
 			<< "	};" << std::endl
 			<< "};"  << std::endl;
 	}
+
+	out << "class _postfix_0" << std::endl
+		<< "{" << std::endl
+		<< "	objectType=\"postfix\";" << std::endl
+		<< "	class Arguments" << std::endl
+		<< "	{" << std::endl
+		<< "	};" << std::endl
+		<< "};" << std::endl;
 }
