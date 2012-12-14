@@ -2,7 +2,7 @@
 
 #include "StringFuncs.h"
 
-Unit::Unit(Group *grp) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), strType(), m_bPlayable(false)
+Unit::Unit(Group *grp) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), strType(), m_bPlayable(false), m_bLeader(false)
 {
 }
 
@@ -53,6 +53,13 @@ void Unit::DeserializeSQM(std::istream &in)
 			if(strArg == "\"PLAY CDG\";" || strArg == "\"PLAYER COMMANDER\";")
 			{
 				m_bPlayable = true;
+			}
+		}
+		else if(strCmd == "leader")
+		{
+			if(strArg == "1;")
+			{
+				m_bLeader = 1;
 			}
 		}
 	}
