@@ -2,6 +2,8 @@
 #include <istream>
 #include <ostream>
 
+#include <string>
+
 class Group;
 
 class Unit
@@ -16,4 +18,6 @@ class Unit
 		double m_dZ;
 
 		double m_dAzimuth;
+
+		std::string strType;
 };

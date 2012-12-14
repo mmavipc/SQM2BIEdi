@@ -1,5 +1,4 @@
 #include "Unit.h"
-#include <string>
 
 #include "StringFuncs.h"
 
@@ -44,6 +43,10 @@ void Unit::DeserializeSQM(std::istream &in)
 		else if(strCmd == "special")
 		{
 			//TODO: Fill this in
+		}
+		else if(strCmd == "vehicle")
+		{
+			strType = strArg.substr(0, strArg.length()-1);
 		}
 	}
 }
