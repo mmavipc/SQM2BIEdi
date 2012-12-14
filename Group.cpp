@@ -26,6 +26,11 @@ Center* Center::GetCenter(std::string strSide)
 	return center;
 }
 
+const std::vector<Center*> Center::GetCenters()
+{
+	return centerList;
+}
+
 Group::Group(unsigned short ID) : m_units(), m_ID(ID), m_center(NULL)
 {
 }

@@ -10,6 +10,7 @@ class Center
 {
 	public:
 		static Center* GetCenter(std::string strSide);
+		static const std::vector<Center*> GetCenters();
 		std::string GetSide();
 	private:
 		Center(std::string strSide);
