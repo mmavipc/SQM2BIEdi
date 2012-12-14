@@ -24,4 +24,6 @@ class Unit
 		bool m_bPlayable;
 
 		bool m_bLeader;
+
+		std::string m_strRank;
 };

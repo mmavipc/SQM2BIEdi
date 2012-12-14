@@ -62,5 +62,9 @@ void Unit::DeserializeSQM(std::istream &in)
 				m_bLeader = 1;
 			}
 		}
+		else if(strCmd == "rank")
+		{
+			m_strRank = strArg.substr(1, strArg.length()-2);
+		}
 	}
 }
