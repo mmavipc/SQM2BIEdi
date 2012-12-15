@@ -5,8 +5,8 @@
 
 #include "StringFuncs.h"
 
-Intel::Intel() : m_dOvercast(0), m_dOvercastWanted(0), m_dFog(0), m_dFogWanted(0),
-	m_hour(0), m_minute(0), m_month(0), m_year(0), m_day(0)
+Intel::Intel() : m_dOvercast(-1), m_dOvercastWanted(-1), m_dFog(-1), m_dFogWanted(-1),
+	m_hour(-1), m_minute(-1), m_month(-1), m_year(-1), m_day(-1)
 {
 }
 
@@ -65,16 +65,25 @@ void Intel::SerializeBiEdi(std::ostream &out)
 		<< "{" << std::endl
 		<< "	objectType=\"intel\";" << std::endl
 		<< "	class Arguments" << std::endl
-		<< "	{" << std::endl
-		<< "		OVERCAST=\"" << m_dOvercast << "\";" << std::endl
-		<< "		OVERCAST_WANTED=\"" << m_dOvercastWanted << "\";" << std::endl
-		<< "		FOG=\"" << m_dFog << "\";" << std::endl
-		<< "		FOG_WANTED=\"" << m_dFogWanted << "\";" << std::endl
-		<< "		YEAR=\"" << m_year << "\";" << std::endl
-		<< "		MONTH=\"" << (unsigned int)m_month << "\";" << std::endl
-		<< "		DAY=\"" << (unsigned int)m_day << "\";" << std::endl
-		<< "		HOUR=\"" << (unsigned int)m_hour << "\";" << std::endl
-		<< "		MINUTE=\"" << (unsigned int)m_minute << "\";" << std::endl
-		<< "	};" << std::endl
-		<< "};"  << std::endl;
+		<< "	{" << std::endl;
+	if(m_dOvercast != -1)
+		out << "		OVERCAST=\"" << m_dOvercast << "\";" << std::endl;
+	if(m_dOvercastWanted != -1)
+		out << "		OVERCAST_WANTED=\"" << m_dOvercastWanted << "\";" << std::endl;
+	if(m_dFog != -1)
+		out << "		FOG=\"" << m_dFog << "\";" << std::endl;
+	if(m_dFogWanted != -1)
+		out << "		FOG_WANTED=\"" << m_dFogWanted << "\";" << std::endl;
+	if(m_year != -1)
+		out << "		YEAR=\"" << m_year << "\";" << std::endl;
+	if(m_month != -1)
+		out << "		MONTH=\"" << (unsigned int)m_month << "\";" << std::endl;
+	if(m_day != -1)
+		out << "		DAY=\"" << (unsigned int)m_day << "\";" << std::endl;
+	if(m_hour != -1)
+		out << "		HOUR=\"" << (unsigned int)m_hour << "\";" << std::endl;
+	if(m_minute != -1)
+		out << "		MINUTE=\"" << (unsigned int)m_minute << "\";" << std::endl;
+	out << "	};" << std::endl;
+	out << "};"  << std::endl;
 }
