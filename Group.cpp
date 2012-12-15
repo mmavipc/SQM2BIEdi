@@ -129,6 +129,10 @@ void Group::SerializeBiEdi(std::ostream &out)
 	{
 		m_units[i]->SerializeBiEdi(out);
 	}
+	for(size_t i = 0; i < m_waypoints.size(); i++)
+	{
+		m_waypoints[i]->SerializeBiEdi(out);
+	}
 }
 
 const unsigned short Group::GetID()

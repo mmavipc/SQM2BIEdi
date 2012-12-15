@@ -103,3 +103,27 @@ void Waypoint::DeserializeSQM(std::istream &in)
 		//TODO: Mess around with all options and fill in the rest
 	}
 }
+
+void Waypoint::SerializeBiEdi(std::ostream &out)
+{
+	out << "class _waypoint_" << m_ID << std::endl
+		<< "{" << std::endl
+		<< "	class Arguments" << std::endl
+		<< "	{" << std::endl
+		<< "		POSITION=\"[" << m_dX << "," << m_dY << "]\";" << std::endl
+		<< "		GROUP=\"_group_" << m_grp->GetID() << "\";" << std::endl;
+	if(m_strType != "")
+		out << "		TYPE=\"" << m_strType << "\";" << std::endl;
+	if(m_strFormation != "")
+		out << "		FORMATION=\"" << m_strFormation << "\";" << std::endl;
+	if(m_strSpeed != "")
+		out << "		SPEED=\"" << m_strSpeed << "\";" << std::endl;
+	if(m_strCombat != "")
+		out << "		COMBAT=\"" << m_strCombat << "\";" << std::endl;
+	if(m_strCombatMode != "")
+		out << "		COMBAT_MODE=\"" << m_strCombatMode << "\";" << std::endl;
+	if(m_strShowWP != "")
+		out << "		SHOW=\"" << m_strShowWP << "\";" << std::endl;
+	out << "	};" << std::endl
+		<< "};" << std::endl;
+}
