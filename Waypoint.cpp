@@ -108,7 +108,7 @@ void Waypoint::SerializeBiEdi(std::ostream &out)
 {
 	out << "class _waypoint_" << m_ID << std::endl
 		<< "{" << std::endl
-		<< "objectType=\"waypoint\";" << std::endl
+		<< "	objectType=\"waypoint\";" << std::endl
 		<< "	class Arguments" << std::endl
 		<< "	{" << std::endl
 		<< "		POSITION=\"[" << m_dX << "," << m_dY << "]\";" << std::endl
