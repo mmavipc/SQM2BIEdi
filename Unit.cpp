@@ -4,7 +4,8 @@
 #include "StringFuncs.h"
 
 Unit::Unit(Group *grp, unsigned short ID) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(-1), m_strType(), m_bPlayable(false), m_bLeader(false),
-	m_dSkill(-1), m_strInit(), m_strDesc(), m_dHealth(-1), m_dAmmo(-1), m_ID(ID), m_grp(grp), m_bPlayer(false)
+	m_dSkill(-1), m_strInit(), m_strDesc(), m_dHealth(-1), m_dAmmo(-1), m_ID(ID), m_grp(grp), m_bPlayer(false), m_dPlacement(0),
+	m_strName(), m_strSpecial(), m_strAge()
 {
 }
 
@@ -44,7 +45,7 @@ void Unit::DeserializeSQM(std::istream &in)
 		}
 		else if(strCmd == "special")
 		{
-			//TODO: Fill this in
+			m_strSpecial = strArg.substr(1, strArg.length()-3);
 		}
 		else if(strCmd == "vehicle")
 		{
@@ -92,6 +93,18 @@ void Unit::DeserializeSQM(std::istream &in)
 		{
 			m_dAmmo = atof(strArg.substr(0, strArg.length()-1).c_str());
 		}
+		else if(strCmd == "placement")
+		{
+			m_dPlacement = atof(strArg.substr(0, strArg.length()-1).c_str());
+		}
+		else if(strCmd == "text")
+		{
+			m_strName = strArg.substr(1, strArg.length()-3);
+		}
+		else if(strCmd == "age")
+		{
+			m_strAge = strArg.substr(1, strArg.length()-3);
+		}
 	}
 }
 
@@ -123,6 +136,14 @@ void Unit::SerializeBiEdi(std::ostream &out)
 		out << "		PLAYABLE=\"true\";" << std::endl;
 	if(m_bLeader)
 		out << "		LEADER=\"true\";" << std::endl;
+	if(m_dPlacement)
+		out << "		PLACEMENT=\"" << m_dPlacement << "\";" << std::endl;
+	if(m_strName != "")
+		out << "		NAME=\"" << m_strName << "\";" << std::endl;
+	if(m_strAge != "")
+		out << "		AGE=\"" << m_strAge << "\";" << std::endl;
+	if(m_strSpecial != "")
+		out << "		SPECIAL=\"" << m_strSpecial << "\";" << std::endl;
 	out << "	};" << std::endl
 		<< "};" << std::endl;
 	//TODO: mess around in 3d editor and find correct names for the rest of the values

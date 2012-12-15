@@ -40,4 +40,12 @@ class Unit
 
 		double m_dHealth;
 		double m_dAmmo;
+
+		double m_dPlacement;
+
+		std::string m_strName;
+
+		std::string m_strSpecial;
+
+		std::string m_strAge;
 };
