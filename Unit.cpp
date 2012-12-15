@@ -48,7 +48,7 @@ void Unit::DeserializeSQM(std::istream &in)
 		}
 		else if(strCmd == "vehicle")
 		{
-			m_strType = strArg.substr(1, strArg.length()-2);
+			m_strType = strArg.substr(1, strArg.length()-3);
 		}
 		else if(strCmd == "player")
 		{
@@ -66,7 +66,7 @@ void Unit::DeserializeSQM(std::istream &in)
 		}
 		else if(strCmd == "rank")
 		{
-			m_strRank = strArg.substr(1, strArg.length()-2);
+			m_strRank = strArg.substr(1, strArg.length()-3);
 		}
 		else if(strCmd == "skill")
 		{
@@ -74,11 +74,11 @@ void Unit::DeserializeSQM(std::istream &in)
 		}
 		else if(strCmd == "init")
 		{
-			m_strInit = strArg.substr(1, strArg.length()-2);
+			m_strInit = strArg.substr(1, strArg.length()-3);
 		}
 		else if(strCmd == "description")
 		{
-			m_strDesc = strArg.substr(1, strArg.length()-2);
+			m_strDesc = strArg.substr(1, strArg.length()-3);
 		}
 		else if(strCmd == "health")
 		{
