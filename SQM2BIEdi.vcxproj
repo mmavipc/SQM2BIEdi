@@ -80,6 +80,7 @@
     <ClCompile Include="SQM2BIEdi.cpp" />
     <ClCompile Include="StringFuncs.cpp" />
     <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Waypoint.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Group.h" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Mission.h" />
     <ClInclude Include="StringFuncs.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="Wapoint.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

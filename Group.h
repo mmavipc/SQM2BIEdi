@@ -5,6 +5,7 @@
 #include <string>
 
 class Unit;
+class Waypoint;
 
 class Center
 {
@@ -28,6 +29,7 @@ class Group
 		const unsigned short GetID();
 	private:
 		std::vector<Unit*> m_units;
+		std::vector<Waypoint*> m_waypoints;
 		unsigned short m_ID;
 		Center* m_center;
 };

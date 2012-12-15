@@ -4,6 +4,7 @@
 
 #include "StringFuncs.h"
 #include "Unit.h"
+#include "Wapoint.h"
 
 std::vector<Center*> centerList;
 
@@ -105,6 +106,10 @@ void Group::DeserializeSQM(std::istream &in)
 			id++;
 			unit->DeserializeSQM(in);
 			m_units[m_units.size()-1] = unit;
+		}
+		if(strLine.find("class Waypoints") != std::string::npos)//Waypoints are inside class Vehicles in sqm? what the fuck?
+		{
+			m_waypoints = Waypoint::SerializeWaypoints(in);
 		}
 	}
 }
