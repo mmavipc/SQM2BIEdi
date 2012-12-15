@@ -51,5 +51,6 @@ int main(int argc, char* argv[])
 	mis.DeserializeSQM(inFile);
 	std::ostream os(new MyBuf());
 	mis.SerializeBiEdi(os);//std::cout for testing purposes
+	os.flush();
 	return 0;
 }
