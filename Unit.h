@@ -13,7 +13,10 @@ class Unit
 		void DeserializeSQM(std::istream &in);
 		void SerializeBiEdi(std::ostream &out);
 	private:
+		Group *m_grp;
+
 		unsigned short m_ID;
+
 		double m_dX;
 		double m_dY;
 		double m_dZ;

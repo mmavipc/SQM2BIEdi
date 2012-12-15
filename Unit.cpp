@@ -1,9 +1,10 @@
 #include "Unit.h"
+#include "Group.h"
 
 #include "StringFuncs.h"
 
 Unit::Unit(Group *grp, unsigned short ID) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), m_strType(), m_bPlayable(false), m_bLeader(false),
-	m_dSkill(0.5), m_strInit(), m_strDesc(), m_dHealth(1), m_dAmmo(1), m_ID(ID)
+	m_dSkill(0.5), m_strInit(), m_strDesc(), m_dHealth(1), m_dAmmo(1), m_ID(ID), m_grp(grp)
 {
 }
 
@@ -88,4 +89,20 @@ void Unit::DeserializeSQM(std::istream &in)
 			m_dAmmo = atof(strArg.substr(0, strArg.length()-1).c_str());
 		}
 	}
+}
+
+void Unit::SerializeBiEdi(std::ostream &out)
+{
+	out << "class _unit_" << m_ID << std::endl
+		<< "{" << std::endl
+		<< "	objectType=\"unit\";" << std::endl
+		<< "	class Arguments" << std::endl
+		<< "	{" << std::endl
+		<< "		POSITON=\"[" << m_dX << "," << m_dY << "," << m_dZ << "]\";" << std::endl //a list of values inside quotes, what?
+		<< "		GROUP=\"_group_" << m_grp->GetID() << "\";" << std::endl
+		<< "		TYPE=\"" << m_strType << "\";" << std::endl
+		<< "		SKILL=\"" << m_dSkill << "\";" << std::endl
+		<< "	};" << std::endl
+		<< "};" << std::endl;
+	//TODO: mess around in 3d editor and find correct names for the rest of the values
 }

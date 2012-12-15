@@ -119,4 +119,14 @@ void Group::SerializeBiEdi(std::ostream &out)
 		<< "		CENTER=\"_center_" << m_center->GetID() << "\";" << std::endl
 		<< "	};" << std::endl
 		<< "};" << std::endl;
+
+	for(size_t i = 0; i < m_units.size(); i++)
+	{
+		m_units[i]->SerializeBiEdi(out);
+	}
+}
+
+const unsigned short Group::GetID()
+{
+	return m_ID;
 }

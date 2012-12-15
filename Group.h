@@ -25,6 +25,7 @@ class Group
 		Group(unsigned short ID);
 		void DeserializeSQM(std::istream &in);
 		void SerializeBiEdi(std::ostream &out);
+		const unsigned short GetID();
 	private:
 		std::vector<Unit*> m_units;
 		unsigned short m_ID;

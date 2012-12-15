@@ -97,7 +97,7 @@ void Mission::SerializeBiEdi(std::ostream &out)
 			<< "};" << std::endl;
 	}
 
-	for(int i = 0; i < m_groups.size(); i++)
+	for(size_t i = 0; i < m_groups.size(); i++)
 	{
 		m_groups[i]->SerializeBiEdi(out);
 	}
