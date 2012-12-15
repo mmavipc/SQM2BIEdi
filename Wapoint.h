@@ -27,4 +27,5 @@ class Waypoint
 		std::string m_strSpeed;
 		std::string m_strCombat;
 		std::string m_strShowWP;
+		std::string m_strType;
 };

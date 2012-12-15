@@ -37,7 +37,7 @@ std::vector<Waypoint*> Waypoint::DeserializeWaypoints(std::istream &in, Group *g
 }
 
 Waypoint::Waypoint(Group *grp, unsigned short ID): m_grp(grp), m_ID(ID), m_dX(0), m_dY(0), m_dZ(0), m_strCombatMode(),
-	m_strFormation(), m_strSpeed(), m_strCombat(), m_strShowWP()
+	m_strFormation(), m_strSpeed(), m_strCombat(), m_strShowWP(), m_strType()
 {
 }
 
@@ -95,6 +95,10 @@ void Waypoint::DeserializeSQM(std::istream &in)
 		{
 			SeekToPhrase("{", in);// skip for now
 			SeekToPhrase("};", in);
+		}
+		else if(strCmd == "type")
+		{
+			m_strType = strArg.substr(1, strArg.length()-3);;
 		}
 		//TODO: Mess around with all options and fill in the rest
 	}
