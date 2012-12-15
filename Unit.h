@@ -9,10 +9,11 @@ class Group;
 class Unit
 {
 	public:
-		Unit(Group *grp);
+		Unit(Group *grp, unsigned short ID);
 		void DeserializeSQM(std::istream &in);
 		void SerializeBiEdi(std::ostream &out);
 	private:
+		unsigned short m_ID;
 		double m_dX;
 		double m_dY;
 		double m_dZ;

@@ -101,7 +101,7 @@ void Group::DeserializeSQM(std::istream &in)
 		{
 			m_units.resize(m_units.size()+1);
 			static unsigned short id = 0;
-			Unit *unit = new Unit(this);
+			Unit *unit = new Unit(this, id);
 			id++;
 			unit->DeserializeSQM(in);
 			m_units[m_units.size()-1] = unit;

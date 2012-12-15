@@ -2,8 +2,8 @@
 
 #include "StringFuncs.h"
 
-Unit::Unit(Group *grp) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), m_strType(), m_bPlayable(false), m_bLeader(false),
-	m_dSkill(0.5), m_strInit(), m_strDesc(), m_dHealth(1), m_dAmmo(1)
+Unit::Unit(Group *grp, unsigned short ID) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(0), m_strType(), m_bPlayable(false), m_bLeader(false),
+	m_dSkill(0.5), m_strInit(), m_strDesc(), m_dHealth(1), m_dAmmo(1), m_ID(ID)
 {
 }
 
