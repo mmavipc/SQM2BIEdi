@@ -3,7 +3,7 @@
 
 #include "StringFuncs.h"
 
-std::vector<Waypoint*> Waypoint::SerializeWaypoints(std::istream &in)
+std::vector<Waypoint*> Waypoint::DeserializeWaypoints(std::istream &in)
 {
 	std::vector<Waypoint*> ret;
 	std::string strLine;

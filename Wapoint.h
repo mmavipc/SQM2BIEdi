@@ -9,7 +9,7 @@ class Group;
 class Waypoint
 {
 	public:
-		static std::vector<Waypoint*> SerializeWaypoints(std::istream &in);
+		static std::vector<Waypoint*> DeserializeWaypoints(std::istream &in);
 		Waypoint(Group *grp, unsigned short ID);
 		void DeserializeSQM(std::istream &in);
 		void SerializeBiEdi(std::ostream &out);

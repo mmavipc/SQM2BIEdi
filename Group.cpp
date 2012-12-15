@@ -109,7 +109,7 @@ void Group::DeserializeSQM(std::istream &in)
 		}
 		if(strLine.find("class Waypoints") != std::string::npos)//Waypoints are inside class Vehicles in sqm? what the fuck?
 		{
-			m_waypoints = Waypoint::SerializeWaypoints(in);
+			m_waypoints = Waypoint::DeserializeWaypoints(in);
 		}
 	}
 }
