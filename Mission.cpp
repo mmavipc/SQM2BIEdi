@@ -82,22 +82,7 @@ void Mission::SerializeBiEdi(std::ostream &out)
 
 	if(m_intel != NULL)
 	{
-		out << "class _intel_1" << std::endl
-			<< "{" << std::endl
-			<< "	objectType=\"intel\";" << std::endl
-			<< "	class Arguments" << std::endl
-			<< "	{" << std::endl
-			<< "		OVERCAST=\"" << m_intel->m_dOvercast << "\";" << std::endl
-			<< "		OVERCAST_WANTED=\"" << m_intel->m_dOvercastWanted << "\";" << std::endl
-			<< "		FOG=\"" << m_intel->m_dFog << "\";" << std::endl
-			<< "		FOG_WANTED=\"" << m_intel->m_dFogWanted << "\";" << std::endl
-			<< "		YEAR=\"" << m_intel->m_year << "\";" << std::endl
-			<< "		MONTH=\"" << (unsigned int)m_intel->m_month << "\";" << std::endl
-			<< "		DAY=\"" << (unsigned int)m_intel->m_day << "\";" << std::endl
-			<< "		HOUR=\"" << (unsigned int)m_intel->m_hour << "\";" << std::endl
-			<< "		MINUTE=\"" << (unsigned int)m_intel->m_minute << "\";" << std::endl
-			<< "	};" << std::endl
-			<< "};"  << std::endl;
+		m_intel->SerializeBiEdi(out);
 	}
 
 	out << "class _postfix_0" << std::endl

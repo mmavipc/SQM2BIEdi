@@ -58,3 +58,23 @@ void Intel::DeserializeSQM(std::istream &in)
 		}
 	}
 }
+
+void Intel::SerializeBiEdi(std::ostream &out)
+{
+	out << "class _intel_1" << std::endl
+		<< "{" << std::endl
+		<< "	objectType=\"intel\";" << std::endl
+		<< "	class Arguments" << std::endl
+		<< "	{" << std::endl
+		<< "		OVERCAST=\"" << m_dOvercast << "\";" << std::endl
+		<< "		OVERCAST_WANTED=\"" << m_dOvercastWanted << "\";" << std::endl
+		<< "		FOG=\"" << m_dFog << "\";" << std::endl
+		<< "		FOG_WANTED=\"" << m_dFogWanted << "\";" << std::endl
+		<< "		YEAR=\"" << m_year << "\";" << std::endl
+		<< "		MONTH=\"" << (unsigned int)m_month << "\";" << std::endl
+		<< "		DAY=\"" << (unsigned int)m_day << "\";" << std::endl
+		<< "		HOUR=\"" << (unsigned int)m_hour << "\";" << std::endl
+		<< "		MINUTE=\"" << (unsigned int)m_minute << "\";" << std::endl
+		<< "	};" << std::endl
+		<< "};"  << std::endl;
+}
