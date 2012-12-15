@@ -50,7 +50,6 @@ int main(int argc, char* argv[])
 
 	mis.DeserializeSQM(inFile);
 	std::ostream os(new MyBuf());
-	os << 't' << "test" << std::endl;
 	mis.SerializeBiEdi(os);//std::cout for testing purposes
 	return 0;
 }
