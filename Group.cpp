@@ -7,7 +7,7 @@
 
 std::vector<Center*> centerList;
 
-Center::Center(std::string strSide) : m_strSide(strSide)
+Center::Center(std::string strSide, unsigned short id) : m_strSide(strSide), m_id(id)
 {
 }
 
@@ -20,10 +20,15 @@ Center* Center::GetCenter(std::string strSide)
 			return centerList[i];
 		}
 	}
-	Center *center = new Center(strSide);
+	Center *center = new Center(strSide, centerList.size());
 	centerList.resize(centerList.size()+1);
 	centerList[centerList.size()-1] = center;
 	return center;
+}
+
+std::string Center::GetSide()
+{
+	return m_strSide;
 }
 
 const std::vector<Center*> Center::GetCenters()
@@ -97,4 +102,8 @@ void Group::DeserializeSQM(std::istream &in)
 			m_units[m_units.size()-1] = unit;
 		}
 	}
+}
+
+void Group::SerializeBiEdi(std::ostream &out)
+{
 }

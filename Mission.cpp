@@ -85,6 +85,23 @@ void Mission::SerializeBiEdi(std::ostream &out)
 		m_intel->SerializeBiEdi(out);
 	}
 
+	for(size_t i = 0; i < Center::GetCenters().size(); i++)
+	{
+		out << "class _center_" << i << std::endl
+			<< "{" << std::endl
+			<< "	objectType=\"center\";" << std::endl
+			<< "	class Arguments" << std::endl
+			<< "	{" << std::endl
+			<< "		SIDE=\"" << Center::GetCenters()[i]->GetSide() << "\";" << std::endl
+			<< "	};" << std::endl
+			<< "};" << std::endl;
+	}
+
+	for(int i = 0; i < m_groups.size(); i++)
+	{
+		m_groups[i]->SerializeBiEdi(out);
+	}
+
 	out << "class _postfix_0" << std::endl
 		<< "{" << std::endl
 		<< "	objectType=\"postfix\";" << std::endl

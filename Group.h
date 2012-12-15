@@ -13,8 +13,9 @@ class Center
 		static const std::vector<Center*> GetCenters();
 		std::string GetSide();
 	private:
-		Center(std::string strSide);
+		Center(std::string strSide, unsigned short id);
 		std::string m_strSide;
+		unsigned short m_id;
 };
 
 class Group
