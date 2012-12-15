@@ -6,6 +6,7 @@
 #include "Intel.h"
 #include "Group.h"
 #include "Vehicle.h"
+#include "Marker.h"
 
 class Mission
 {
@@ -17,4 +18,5 @@ class Mission
 		Intel *m_intel;
 		std::vector<Group*> m_groups;
 		std::vector<Vehicle*> m_vehicles;
+		std::vector<Marker*> m_markers;
 };

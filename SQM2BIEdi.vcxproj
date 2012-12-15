@@ -76,6 +76,7 @@
   <ItemGroup>
     <ClCompile Include="Group.cpp" />
     <ClCompile Include="Intel.cpp" />
+    <ClCompile Include="Marker.cpp" />
     <ClCompile Include="Mission.cpp" />
     <ClCompile Include="SQM2BIEdi.cpp" />
     <ClCompile Include="StringFuncs.cpp" />
@@ -86,6 +87,7 @@
   <ItemGroup>
     <ClInclude Include="Group.h" />
     <ClInclude Include="Intel.h" />
+    <ClInclude Include="Marker.h" />
     <ClInclude Include="Mission.h" />
     <ClInclude Include="StringFuncs.h" />
     <ClInclude Include="Unit.h" />

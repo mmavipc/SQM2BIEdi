@@ -97,6 +97,32 @@ void Mission::DeserializeSQM(std::istream &in)
 				}
 			}
 		}
+		else if(strLine == "class Markers")
+		{
+			std::getline(in, strLine);//{
+			std::getline(in, strLine);
+			strLine = StringReplace(strLine, "\x09", "");
+			strLine = StringReplace(strLine, "items=", "");
+			strLine = StringReplace(strLine, ";", "");
+			m_markers.reserve(atoi(strLine.c_str()));
+			unsigned int scope = 1;
+			while(scope != 0)
+			{
+				std::getline(in, strLine);
+				scope += CharCount(strLine, '{');
+				scope -= CharCount(strLine, '}');
+				strLine = StringReplace(strLine, "\x09", "");
+				if(strLine.find("class Item") != std::string::npos)
+				{
+					m_markers.resize(m_markers.size()+1);
+					static unsigned short id = 0;
+					Marker *marker = new Marker(id);
+					id++;
+					marker->DeserializeSQM(in);
+					m_markers[m_markers.size()-1] = marker;
+				}
+			}
+		}
 	}
 }
 
@@ -127,9 +153,15 @@ void Mission::SerializeBiEdi(std::ostream &out)
 	{
 		m_groups[i]->SerializeBiEdi(out);
 	}
+
 	for(size_t i = 0; i < m_vehicles.size(); i++)
 	{
 		m_vehicles[i]->SerializeBiEdi(out);
+	}
+
+	for(size_t i = 0; i < m_markers.size(); i++)
+	{
+		m_markers[i]->SerializeBiEdi(out);
 	}
 
 	out << "class _postfix_0" << std::endl
