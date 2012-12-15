@@ -36,6 +36,11 @@ const std::vector<Center*> Center::GetCenters()
 	return centerList;
 }
 
+const unsigned short Center::GetID()
+{
+	return m_id;
+}
+
 Group::Group(unsigned short ID) : m_units(), m_ID(ID), m_center(NULL)
 {
 }
@@ -106,4 +111,12 @@ void Group::DeserializeSQM(std::istream &in)
 
 void Group::SerializeBiEdi(std::ostream &out)
 {
+	out << "class _group_" << m_ID << std::endl
+		<< "{" << std::endl
+		<< "	objectType=\"group\";" << std::endl
+		<< "	class Arguments" << std::endl
+		<< "	{" << std::endl
+		<< "		CENTER=\"_center_" << m_center->GetID() << "\";" << std::endl
+		<< "	};" << std::endl
+		<< "};" << std::endl;
 }
