@@ -4,7 +4,7 @@
 #include "StringFuncs.h"
 
 Unit::Unit(Group *grp, unsigned short ID) : m_dX(0), m_dY(0), m_dZ(0), m_dAzimuth(-1), m_strType(), m_bPlayable(false), m_bLeader(false),
-	m_dSkill(-1), m_strInit(), m_strDesc(), m_dHealth(-1), m_dAmmo(-1), m_ID(ID), m_grp(grp)
+	m_dSkill(-1), m_strInit(), m_strDesc(), m_dHealth(-1), m_dAmmo(-1), m_ID(ID), m_grp(grp), m_bPlayer(false)
 {
 }
 
@@ -52,9 +52,13 @@ void Unit::DeserializeSQM(std::istream &in)
 		}
 		else if(strCmd == "player")
 		{
-			if(strArg == "\"PLAY CDG\";" || strArg == "\"PLAYER COMMANDER\";")
+			if(strArg == "\"PLAY CDG\";")
 			{
 				m_bPlayable = true;
+			}
+			else if(strArg == "\"PLAYER COMMANDER\";")
+			{
+				m_bPlayer = true;
 			}
 		}
 		else if(strCmd == "leader")
@@ -103,6 +107,22 @@ void Unit::SerializeBiEdi(std::ostream &out)
 		<< "		TYPE=\"" << m_strType << "\";" << std::endl;
 	if(m_dSkill != -1)
 		out << "		SKILL=\"" << m_dSkill << "\";" << std::endl;
+	if(m_dAzimuth != -1)
+		out << "		AZIMUT=\"" << m_dAzimuth << "\";" << std::endl;
+	if(m_dHealth != -1)
+		out << "		HEALTH=\"" << m_dHealth << "\";" << std::endl;
+	if(m_dAmmo != -1)
+		out << "		AMMO=\"" << m_dAmmo << "\";" << std::endl;
+	if(m_strInit != "")
+		out << "		INIT=\"" << m_strInit << "\";" << std::endl;
+	if(m_strRank != "")
+		out << "		RANK=\"" << m_strRank << "\";" << std::endl;
+	if(m_bPlayer)
+		out << "		PLAYER=\"true\";" << std::endl;
+	if(m_bPlayable)
+		out << "		PLAYABLE=\"true\";" << std::endl;
+	if(m_bLeader)
+		out << "		LEADER=\"true\";" << std::endl;
 	out << "	};" << std::endl
 		<< "};" << std::endl;
 	//TODO: mess around in 3d editor and find correct names for the rest of the values

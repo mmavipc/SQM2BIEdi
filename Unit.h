@@ -26,6 +26,7 @@ class Unit
 		std::string m_strType;
 
 		bool m_bPlayable;
+		bool m_bPlayer;
 
 		bool m_bLeader;
 
