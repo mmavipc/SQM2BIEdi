@@ -1,4 +1,4 @@
-#include "Wapoint.h"
+#include "Waypoint.h"
 #include "Group.h"
 
 #include "StringFuncs.h"

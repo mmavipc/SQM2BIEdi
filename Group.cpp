@@ -4,7 +4,7 @@
 
 #include "StringFuncs.h"
 #include "Unit.h"
-#include "Wapoint.h"
+#include "Waypoint.h"
 
 std::vector<Center*> centerList;
 
