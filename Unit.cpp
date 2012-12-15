@@ -98,7 +98,7 @@ void Unit::SerializeBiEdi(std::ostream &out)
 		<< "	objectType=\"unit\";" << std::endl
 		<< "	class Arguments" << std::endl
 		<< "	{" << std::endl
-		<< "		POSITON=\"[" << m_dX << "," << m_dY << "," << m_dZ << "]\";" << std::endl //a list of values inside quotes, what?
+		<< "		POSITION=\"[" << m_dX << "," << m_dY << "," << m_dZ << "]\";" << std::endl //a list of values inside quotes, what?
 		<< "		GROUP=\"_group_" << m_grp->GetID() << "\";" << std::endl
 		<< "		TYPE=\"" << m_strType << "\";" << std::endl;
 	if(m_dSkill != -1)
